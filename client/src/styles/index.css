@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+ box-sizing: border-box;
+}
+body {
+ font-family: "Mulish", sans-serif;
+ font-optical-sizing: auto;
+ font-weight: 500;
+ font-style: normal;
+ user-select: none;
+}

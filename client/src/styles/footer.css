@@ -1,0 +1,8 @@
+.foss a:hover {
+ border-bottom: 3px solid black;
+ color: black;
+}
+.foss a:first-of-type {
+ border-bottom: 3px solid black;
+ color: black;
+}

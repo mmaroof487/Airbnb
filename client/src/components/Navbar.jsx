@@ -2,7 +2,7 @@ import { Search, SlidersHorizontal } from "lucide-react";
 import { data } from "../data/data.js";
 import "../styles/navbar.css";
 
-export default function Navbar() {
+export default function Navbar(prop) {
 	return (
 		<>
 			<div className="text-sm w-fit rounded-Yxl justify-evenly m-auto mt-3 mist  hidden ml:flex">
@@ -53,13 +53,15 @@ export default function Navbar() {
 
 			<div className="w-full h-2 border-b-2 my-6 border-zinc-200"></div>
 
-			<div className="px-10 h-14 flex items-center gap-5 justify-start text-xs overflow-hidden lg:gap-0 lg:justify-evenly lg:overflow-auto">
-				{data.map((item) => (
-					<div key={item.key} className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
-						<img src={item.icon} alt="" className="size-6" />
-						<span className=" text-gray-600">{item.tag}</span>
-					</div>
-				))}
+			<div className="px-10 h-14 flex items-center gap-5 justify-between text-xs overflow-hidden lg:gap-0 lg:justify-evenly lg:overflow-auto">
+				<div className="flex flex-row">
+					{data.map((item) => (
+						<div key={item.key} className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+							<img src={item.icon} alt="" className="size-6" />
+							<span className=" text-gray-600">{item.tag}</span>
+						</div>
+					))}
+				</div>
 				<div className="flex gap-2">
 					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer">
 						<SlidersHorizontal />
@@ -67,9 +69,18 @@ export default function Navbar() {
 					</div>
 					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer">
 						<label htmlFor="tax" className="cursor-pointer">
-							Display total before taxes
+							Display total after taxes
 						</label>
-						<input type="checkbox" id="tax" className="size-4 ml-2 cursor-pointer" />
+						<input
+							type="checkbox"
+							id="tax"
+							className="size-4 ml-2 cursor-pointer"
+							onChange={() => {
+								prop.setTax((val) => {
+									return !val;
+								});
+							}}
+						/>
 					</div>
 				</div>
 			</div>

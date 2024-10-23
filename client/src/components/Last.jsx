@@ -1,4 +1,4 @@
-import { Globe, Facebook, Twitter, Instagram } from "lucide-react";
+import { Globe, Linkedin, Twitter, Instagram } from "lucide-react";
 
 export default function Last() {
 	return (
@@ -31,11 +31,9 @@ export default function Last() {
 					</span>
 				</div>
 
-				<div className="flex justify-between font-semibold mx-16">
-					<span className="mx-2">
+				<div className="flex justify-between font-semibold mx-16 items-center">
+					<span className="mx-2 flex flex-row gap-1 items-center">
 						<Globe />
-					</span>
-					<span className="mx-2">
 						<a href="" className="hover:underline">
 							English(IN)
 						</a>
@@ -46,17 +44,17 @@ export default function Last() {
 						</a>
 					</span>
 					<span className="mx-2">
-						<a href="">
-							<Facebook />
+						<a href="https://www.linkedin.com/in/mohammad-maroof-80aa7024a/" target="_blank">
+							<Linkedin />
 						</a>
 					</span>
 					<span className="mx-2">
-						<a href="">
+						<a href="https://x.com/MMaroof487" target="_blank">
 							<Twitter />
 						</a>
 					</span>
 					<span className="mx-2">
-						<a href="">
+						<a href="https://www.instagram.com/muhammad_maroof1/" target="_blank">
 							<Instagram />
 						</a>
 					</span>

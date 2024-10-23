@@ -47,7 +47,7 @@ export default function Login(prop) {
 
 	return (
 		<>
-			<div className="w-full  flex justify-center items-center font-thin">
+			<div className="w-full  flex justify-center items-center ">
 				<div className="w-[566px] rounded-2xl border-2 border-zinc-300 my-20">
 					{/* form */}
 					<div className="py-4 flex justify-center border-b-2 border-zinc-100 font-bold text-lg">Log in or Sign up</div>

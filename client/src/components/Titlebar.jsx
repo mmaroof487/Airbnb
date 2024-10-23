@@ -10,10 +10,12 @@ export default function Titlebar(prop) {
 				{/* hidden lg:grid */}
 				{/* LOGO */}
 				<div className="flex flex-col w-1/3">
-					<div className="flex items-center text-2xl text-oyange font-bold w-fit">
-						<img src={logo} className="w-10 h-12 mx-1" alt="logo" /> airbnb
-					</div>
-					<small className="text-sm text-gray-400">{prop.data.email}</small>
+					<Link to={""}>
+						<div className="flex items-center text-2xl text-oyange font-bold w-fit">
+							<img src={logo} className="w-10 h-12 mx-1" alt="logo" /> airbnb
+						</div>
+						<small className="text-sm text-gray-400">{prop.data.email}</small>
+					</Link>
 				</div>
 				{/* CENTER TITLE  */}
 				{prop.home ? (
@@ -31,7 +33,7 @@ export default function Titlebar(prop) {
 				)}
 				{/* END TITLE  */}
 				<div className="flex items-center text-sm font-semibold justify-end  w-1/3">
-					<Link>
+					<Link to={"/post"}>
 						<div className="mouse rounded-Yxl py-3 px-3 hover:text-red-600">Airbnb your home</div>
 					</Link>
 

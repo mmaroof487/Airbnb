@@ -1,12 +1,22 @@
+import Titlebar from "./Titlebar";
+import Footer from "./Footer";
+import Alert from "./Alert";
 import { useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 
 export default function Post() {
+	const locate = useLocation();
+	const log = locate.state?.log || false;
+
+	console.log(log);
 	async function create(e) {
 		e.preventDefault();
 		try {
 			await axios
 				.post("http://localhost:3000/post", {
+					user,
+					contact,
 					name,
 					location,
 					url,
@@ -21,13 +31,16 @@ export default function Post() {
 		}
 	}
 
+	const [user, setUser] = useState("");
+	const [contact, setContact] = useState("");
 	const [name, setName] = useState("");
 	const [location, setLocation] = useState("");
 	const [url, setUrl] = useState("");
 	const [price, setPrice] = useState("");
 	const [date, setDate] = useState("");
-	return (
-		<div className="flex">
+
+	const content = (
+		<>
 			<div className="w-1/3 flex justify-center items-center">
 				<div>
 					<div className="text-4xl text-oyange">AIRBNB IT,</div>{" "}
@@ -40,7 +53,7 @@ export default function Post() {
 				</div>
 			</div>
 			<div className="w-2/3  flex justify-center ">
-				<div className="w-[766px] rounded-2xl border-2 border-zinc-300 my-16">
+				<div className="w-[766px] rounded-2xl border-2 border-zinc-300 my-8">
 					<div className="py-4 flex justify-center border-b-2 border-zinc-100 font-bold text-lg">Airbnb Your Home!</div>
 					<form action="/post" onSubmit={create} method="post">
 						<div className="flex gap-4 flex-col p-8 pb-4">
@@ -48,15 +61,33 @@ export default function Post() {
 							<div>
 								<input
 									type="text"
-									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-4 py-3 px-4 "
-									placeholder="Name"
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
+									placeholder="Your Name"
+									value={user}
+									onChange={(e) => {
+										setUser(e.target.value);
+									}}
+								/>
+								<input
+									type="text"
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
+									placeholder="Contact information"
+									value={contact}
+									onChange={(e) => {
+										setContact(e.target.value);
+									}}
+								/>
+								<input
+									type="text"
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
+									placeholder="Airbnb Name"
 									value={name}
 									onChange={(e) => {
 										setName(e.target.value);
 									}}
 								/>
 								<textarea
-									className="outline-none w-full h-28 border-2 border-zinc-400 rounded-lg mb-4 py-3 px-4 resize-none"
+									className="outline-none w-full h-24 border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 resize-none"
 									placeholder="Address"
 									value={location}
 									onChange={(e) => {
@@ -65,7 +96,7 @@ export default function Post() {
 								/>
 								<input
 									type="text"
-									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-4 py-3 px-4 "
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
 									placeholder="Image url"
 									value={url}
 									onChange={(e) => {
@@ -74,7 +105,7 @@ export default function Post() {
 								/>
 								<input
 									type="number"
-									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-4 py-3 px-4 "
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
 									step={1000}
 									placeholder="Price per night"
 									value={price}
@@ -84,7 +115,7 @@ export default function Post() {
 								/>
 								<input
 									type="text"
-									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-4 py-3 px-4 "
+									className="outline-none w-full border-2 border-zinc-400 rounded-lg mb-3 py-3 px-4 "
 									placeholder="Date"
 									value={date}
 									onChange={(e) => {
@@ -97,6 +128,24 @@ export default function Post() {
 					</form>
 				</div>
 			</div>
-		</div>
+		</>
+	);
+
+	return (
+		<>
+			<Titlebar log={log} />
+			<div className="w-full h-1 border-t-2 border-zinc-200 mt-2"> </div>
+			{log ? (
+				<>
+					<div className="flex">{content}</div>
+					<Footer />
+				</>
+			) : (
+				<>
+					<Alert />
+					<div className="flex blur-sm">{content}</div>
+				</>
+			)}
+		</>
 	);
 }

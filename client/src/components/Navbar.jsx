@@ -1,5 +1,23 @@
-import { Search, SlidersHorizontal } from "lucide-react";
-import { data } from "../data/data.js";
+import {
+	Search,
+	SlidersHorizontal,
+	Snowflake,
+	House,
+	Trees,
+	Flame,
+	Sailboat,
+	Waves,
+	Accessibility,
+	CableCar,
+	Mountain,
+	Coffee,
+	LandPlot,
+	BedDouble,
+	TreePalm,
+	Castle,
+	TowerControl,
+} from "lucide-react";
+// import { data } from "../data/data.js";
 import "../styles/navbar.css";
 
 export default function Navbar(prop) {
@@ -26,8 +44,8 @@ export default function Navbar(prop) {
 						<label htmlFor="fourth">Who</label>
 						<input type="text" id="fourth" className=" w-56 rounded-Yxl px-2 bg-transparent outline-none cursor-pointer" placeholder="Add guests" readOnly />
 					</div>
-					<div className="bg-oyange size-12 p-3 rounded-full cursor-pointer">
-						<Search className="text-white" />
+					<div className="bg-oyange size-12 p-3 rounded-full cursor-pointer text-white hover:bg-cream hover:text-oyange transition duration-200 ease-in">
+						<Search />
 					</div>
 				</div>
 			</div>
@@ -53,23 +71,77 @@ export default function Navbar(prop) {
 
 			<div className="w-full h-2 border-b-2 my-6 border-zinc-200"></div>
 
-			<div className="px-10 h-14 flex items-center gap-5 justify-between text-xs overflow-hidden lg:gap-0 lg:justify-evenly lg:overflow-auto">
+			<div className="px-2 h-14 flex items-center gap-5 justify-between font-bold text-xs overflow-hidden lg:gap-0 lg:justify-evenly lg:overflow-auto">
 				<div className="flex flex-row">
-					{data.map((item) => (
-						<div key={item.key} className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
-							<img src={item.icon} alt="" className="size-6" />
-							<span className=" text-gray-600">{item.tag}</span>
-						</div>
-					))}
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Snowflake />
+						<span className=" text-gray-600">Artic</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<House />
+						<span className=" text-gray-600">House</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Trees />
+						<span className=" text-gray-600">Forest</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Flame />
+						<span className=" text-gray-600">Trending</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Sailboat />
+						<span className=" text-gray-600">Shore</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Waves />
+						<span className=" text-gray-600">Sea</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Accessibility />
+						<span className=" text-gray-600">Accessible</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<CableCar />
+						<span className=" text-gray-600">Ski</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Mountain />
+						<span className=" text-gray-600">Mountain</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Coffee />
+						<span className=" text-gray-600">Breakfast</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<LandPlot />
+						<span className=" text-gray-600">Golf</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<BedDouble />
+						<span className=" text-gray-600">Double</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<TreePalm />
+						<span className=" text-gray-600">Artic</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<Castle />
+						<span className=" text-gray-600">Ancient</span>
+					</div>
+					<div className=" flex flex-col justify-center items-center w-20 cursor-pointer hover:border-b-2 border-gray-500">
+						<TowerControl />
+						<span className=" text-gray-600">Tower</span>
+					</div>
 				</div>
 				<div className="flex gap-2">
-					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer">
+					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer font-bold">
 						<SlidersHorizontal />
 						Filters
 					</div>
-					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer">
+					<div className="flex items-center px-4 py-2 rounded-md ring-1 ring-gray-400 cursor-pointer font-bold">
 						<label htmlFor="tax" className="cursor-pointer">
-							Display total after taxes
+							Display total before taxes
 						</label>
 						<input
 							type="checkbox"

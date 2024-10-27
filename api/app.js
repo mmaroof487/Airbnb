@@ -48,9 +48,11 @@ app.post("/login", cors(), async (req, res) => {
 });
 
 app.post("/post", cors(), async (req, res) => {
-	const { name, location, url, price, date } = req.body;
+	const { user, contact, name, location, url, price, date } = req.body;
 
 	const createdPost = await postModel.create({
+		user,
+		contact,
 		name,
 		location,
 		url,

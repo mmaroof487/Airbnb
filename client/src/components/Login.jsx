@@ -1,13 +1,14 @@
+import Titlebar from "./Titlebar";
+import Footer from "./Footer";
 import { Mail, Facebook, Apple, Paperclip } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Login(prop) {
-	prop.setHome(false);
+export default function Login() {
 	const [reg, setReg] = useState(true);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState("mmaroof487@gmail.com"); //mmaroof487@gmail.com
+	const [password, setPassword] = useState("ilu>c8csab"); //ilu>c8csab
 	const history = useNavigate();
 
 	async function login(e) {
@@ -19,9 +20,7 @@ export default function Login(prop) {
 					password,
 				})
 				.then((res) => {
-					res.data ? prop.setLogged(true) : "";
-					prop.setData(res.data);
-					history("/");
+					history("/", { state: { logged: true, user: res.data } });
 				});
 		} catch (e) {
 			console.log(e);
@@ -37,8 +36,7 @@ export default function Login(prop) {
 					password,
 				})
 				.then((res) => {
-					res.data ? prop.setLogged(true) : "";
-					history("/");
+					history("/", { state: { logged: true, user: res.data } });
 				});
 		} catch (e) {
 			console.log(e);
@@ -47,6 +45,8 @@ export default function Login(prop) {
 
 	return (
 		<>
+			<Titlebar />
+			<div className="w-full h-1 border-t-2 border-zinc-200 mt-1"> </div>
 			<div className="w-full  flex justify-center items-center ">
 				<div className="w-[566px] rounded-2xl border-2 border-zinc-300 my-20">
 					{/* form */}
@@ -167,6 +167,7 @@ export default function Login(prop) {
 					</div>
 				</div>
 			</div>
+			<Footer />
 		</>
 	);
 }

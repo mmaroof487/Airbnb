@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 	const [reg, setReg] = useState(true);
-	const [email, setEmail] = useState("mmaroof487@gmail.com"); //mmaroof487@gmail.com
-	const [password, setPassword] = useState("ilu>c8csab"); //ilu>c8csab
+	const [email, setEmail] = useState(""); //mmaroof487@gmail.com
+	const [password, setPassword] = useState(""); //ilu>c8csab
 	const history = useNavigate();
 
 	async function login(e) {
